@@ -16,25 +16,18 @@ namespace TvMaze.API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class ValuesController : ControllerBase
+	public class ShowController : ControllerBase
 	{
 		private readonly IMapper _mapper;
 		private readonly IRepository<Show> _repository;
 
-		public ValuesController(IWebClient webClient, IMapper mapper, IRepository<Show> repository)
+		public ShowController(IWebClient webClient, IMapper mapper, IRepository<Show> repository)
 		{
 			_mapper = mapper;
 			_repository = repository;
 		}
 
-		// GET api/values
-		[HttpGet]
-		public ActionResult<string> Get()
-		{
-			return "to get data input i.e. api/values/5/4";
-		}
-
-		// GET api/values/5
+		// GET api/show/5/5
 		[HttpGet("{page}/{count}")]
 		public async Task<ActionResult<List<ShowModel>>> Get(int? page, int? count)
 		{

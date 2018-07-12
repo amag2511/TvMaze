@@ -38,7 +38,7 @@ namespace TvMaze.API.DataAccess
 
 		public async Task<List<T>> GetListAsync(int skipCount, int takeCount)
 		{
-			return await _dbContext.Set<T>()
+			return await _dbContext.Set<T>()?
 				.Skip(skipCount)
 				.Take(takeCount)
 				.ToListAsync();

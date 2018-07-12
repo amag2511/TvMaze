@@ -20,13 +20,13 @@ namespace TvMaze.API.Services
 
 			var show = new Show
 			{
-				ShowId = showItemDataModel.Id,
+				Id = showItemDataModel.Id,
 				Name = showItemDataModel.Name
 			};
 
 			return new Show
 			{
-				ShowId = showItemDataModel.Id,
+				Id = showItemDataModel.Id,
 				Name = showItemDataModel.Name,
 				ShowToCasts = showItemDataModel.Embedded.Cast.Select(x => Map(show, Map(x))).ToList()
 			};
@@ -41,7 +41,7 @@ namespace TvMaze.API.Services
 
 			return new ShowModel
 			{
-				Id = show.ShowId,
+				Id = show.Id,
 				Name = show.Name,
 				Cast = show.ShowToCasts.OrderBy(x => x.Cast.Birthday).Select(x => Map(x.Cast)).ToList()
 			};
@@ -56,7 +56,7 @@ namespace TvMaze.API.Services
 
 			var cast = new Cast
 			{
-				CastId = castDataModel.Person.Id,
+				Id = castDataModel.Person.Id,
 				Name = castDataModel.Person.Name
 			};
 
@@ -92,7 +92,7 @@ namespace TvMaze.API.Services
 			}
 			var castModel = new CastModel
 			{
-				Id = cast.CastId,
+				Id = cast.Id,
 				Name = cast.Name,
 				Birthday = cast.Birthday?.ToString(DATETIME_FORMAT)
 			};

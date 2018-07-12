@@ -66,11 +66,6 @@ namespace TvMaze.API
 
 			app.UseHttpsRedirection();
 			app.UseMvc();
-
-			app.Run(async (context) =>
-			{
-				await context.Response.WriteAsync("Hello World!");
-			});
 		}
 	}
 }

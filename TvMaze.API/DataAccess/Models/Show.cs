@@ -5,8 +5,7 @@ namespace TvMaze.API.DataAccess.Models
 {
 	public class Show
 	{
-		[DatabaseGenerated(DatabaseGeneratedOption.None)]
-		public int ShowId { get; set; }
+		public int Id { get; set; }
 
 		public string Name { get; set; }
 
