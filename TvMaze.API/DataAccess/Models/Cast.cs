@@ -9,6 +9,8 @@ namespace TvMaze.API.DataAccess.Models
 	{
 		public int Id { get; set; }
 
+		public int ApiId { get; set; }
+
 		public string Name { get; set; }
 
 		public DateTime? Birthday { get; set; }
