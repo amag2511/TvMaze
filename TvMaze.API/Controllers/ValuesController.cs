@@ -41,9 +41,7 @@ namespace TvMaze.API.Controllers
 			var takePage = page ?? 1;
 			var takeCount = count ?? 10;
 
-			var showList = (await _repository.GetListAsync())
-				.Skip((takePage - 1) * takeCount)
-				.Take(takeCount)
+			var showList = (await _repository.GetListAsync((takePage - 1) * takeCount, takeCount))
 				.Select(_mapper.Map)
 				.ToList();
 
