@@ -8,7 +8,7 @@ namespace TvMaze.API.DataAccess.Interfaces
 	public interface IRepository<T> : IDisposable
 		where T : class
 	{
-		Task<List<T>> GetListAsync(int skipCount, int takeCount);
+		Task<List<T>> GetListAsync(int skipCount, int takeCount, Func<IQueryable<T>, IQueryable<T>> includes);
 		Task<T> GetAsync(int id);
 		Task CreateAsync(T item);
 		void Update(T item);

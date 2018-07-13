@@ -56,7 +56,7 @@ namespace TvMaze.API.Services
 
 			var cast = new Cast
 			{
-				Id = castDataModel.Person.Id,
+				ApiId = castDataModel.Person.Id,
 				Name = castDataModel.Person.Name
 			};
 

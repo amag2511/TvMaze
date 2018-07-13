@@ -36,12 +36,21 @@ namespace TvMaze.API.DataAccess
 			GC.SuppressFinalize(this);
 		}
 
-		public async Task<List<T>> GetListAsync(int skipCount, int takeCount)
+		public async Task<List<T>> GetListAsync(
+			int skipCount,
+			int takeCount,
+			Func<IQueryable<T>, IQueryable<T>> includes)
 		{
-			return await _dbContext.Set<T>()?
+			var resultList = _dbContext.Set<T>()
 				.Skip(skipCount)
-				.Take(takeCount)
-				.ToListAsync();
+				.Take(takeCount);
+
+			if (includes != null)
+			{
+				return await includes(resultList).ToListAsync();
+			}
+
+			return await resultList.ToListAsync();
 		}
 
 		public async Task<T> GetAsync(int id)
